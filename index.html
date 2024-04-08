@@ -23,7 +23,7 @@ async function req(url) {
 async function search(query) {
     try {
         await req(
-          `http://host3.dreamhack.games:14942/search?query=${query}`
+          `http://127.0.0.1:8000/search?query=${query}`
         );
         return true;
     } catch (e) {
