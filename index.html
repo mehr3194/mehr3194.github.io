@@ -10,8 +10,7 @@ async function req(url) {
         iframe.src = url;
         document.body.appendChild(iframe);
         iframe.onload = ()=>{
-            frameCount = iframe.contentWindow.frames.length
-            if (frameCount==1){
+            if (iframe.contentWindow.frames.length != 0){
                 resolve();
             }else{
                 reject();
